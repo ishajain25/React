@@ -5,19 +5,23 @@ const User = (props) => {
 
     //changing the state //omponentDidMount
     useEffect(()=> {
+        console.log("component mounting");
 
-        setPlanet("mars")
-        console.log("bye");
-    }, [planet]);
+        //componentWillUnmount
+        return console.log("bye");
+    },[]);
 
     //componentDidUpdate
-    
+    useEffect(() => {
+        console.log("Planet changes");
+    },[planet]);
 
     return (
         <div>
             <h1>{props.name} </h1>
             <p> {props.description} </p>
-            <h1>{planet}</h1>
+            <button onClick={() => setPlanet("pluto")}>{planet}</button>
+
         </div>
     )
 }
